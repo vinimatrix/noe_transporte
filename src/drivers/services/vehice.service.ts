@@ -17,9 +17,9 @@ export class VehiclesService extends ServiceBase<Vehicle> {
         super();
         
     }
-    @Get('bymake')
-    byMake(make:string){
-        return this.driverRepo.createQueryBuilder('Vehicle').where("vehicle.make = :make", { make: make }).getMany();
+    
+    async byMake(make:string):Promise<Vehicle[]>{
+        return await this.driverRepo.createQueryBuilder('Vehicle').where("vehicle.make = :make", { make: make }).getMany();
     }
 
 }
