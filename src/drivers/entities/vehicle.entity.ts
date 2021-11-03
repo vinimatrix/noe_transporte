@@ -1,5 +1,7 @@
-import { Column, Driver, PrimaryGeneratedColumn } from "typeorm";
+import { Column,  Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Driver } from "./driver.entity";
 
+@Entity()
 export class Vehicle {
     @PrimaryGeneratedColumn()
     id:number;
@@ -13,7 +15,8 @@ export class Vehicle {
     color:string;
     @Column()
     chasis:string;
-    @Column()
+    @OneToOne(()=>Driver,driver=>driver.id)
+    @JoinColumn()
     owner:Driver;
 
 }

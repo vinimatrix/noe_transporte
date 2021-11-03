@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Municipio } from "src/municipio/entities/municipio.entity";
+import { Provincia } from "src/provincia/entities/provincia.entity";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Customer {
@@ -12,9 +14,11 @@ export class Customer {
     direccion:string;
     @Column()
     sector:string;
-    @Column()
+    @OneToOne(()=>Municipio,municipio=>municipio.id)
+    @JoinColumn()
     municipio:Municipio;
-    @Column()
+    @OneToOne(()=>Provincia,provincia=>provincia.id)
+    @JoinColumn()
     provincia:Provincia;
     @Column({unique:true})
     cedula:string;

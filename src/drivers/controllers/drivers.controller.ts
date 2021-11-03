@@ -4,7 +4,7 @@ import { ServiceBase } from 'src/commons/service.common';
 import { Driver } from '../entities/driver.entity';
 import { DriversService } from '../services/drivers.service';
 
-@Controller('api/drivers')
+@Controller('drivers')
 export class DriversController extends ControllerBase<Driver>{
     getService(): ServiceBase<Driver> {
         return this.driverService;

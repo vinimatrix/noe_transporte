@@ -4,7 +4,7 @@ import { ServiceBase } from 'src/commons/service.common';
 import { Vehicle } from '../entities/vehicle.entity';
 import { VehiclesService } from '../services/vehice.service';
 
-@Controller('api/vehicle')
+@Controller('vehicles')
 export class VehicleController extends ControllerBase<Vehicle> {
     getService(): ServiceBase<Vehicle> {
         return this.vehicleService;

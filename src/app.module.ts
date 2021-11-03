@@ -5,7 +5,14 @@ import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CustomersModule } from './customers/customers.module';
+import { Customer } from './customers/entities/customer.entiry';
 import { DriversModule } from './drivers/drivers.module';
+import { Driver } from './drivers/entities/driver.entity';
+import { Vehicle } from './drivers/entities/vehicle.entity';
+import { Municipio } from './municipio/entities/municipio.entity';
+import { MunicipioModule } from './municipio/municipio.module';
+import { Provincia } from './provincia/entities/provincia.entity';
+import { ProvinciaModule } from './provincia/provincia.module';
 
 @Module(
   
@@ -20,12 +27,12 @@ import { DriversModule } from './drivers/drivers.module';
     host: 'localhost',
     port: 3306,
     username: 'root',
-    password: 'root',
-    database: 'noe_taxi',
-    entities: [],
-    synchronize: true,
+    password: '',
+    database: 'noe_transporte',
+    entities: [Customer,Driver,Vehicle,Provincia,Municipio],
+    //synchronize: true,
   }),
-  CustomersModule, DriversModule,],
+  CustomersModule, DriversModule, MunicipioModule,ProvinciaModule],
   controllers: [AppController],
   providers: [AppService],
 })

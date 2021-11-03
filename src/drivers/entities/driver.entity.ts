@@ -1,6 +1,7 @@
-import { Column, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Vehicle } from "./vehicle.entity";
 
+@Entity()
 export class Driver {
     @PrimaryGeneratedColumn()
     id:number;
@@ -17,13 +18,13 @@ export class Driver {
     @Column()
     password:string;
     @OneToMany(()=>Vehicle,vehicles=>vehicles.id)
-    vehiculos:Vehicle[];
+    vehicles:Vehicle[];
     @Column('bit')
     isValidated:boolean;
     @Column()
     cedulaPic:string;
-    @Column()
-    licencePic
+    @Column('text')
+    licencePic:string
 
 
 
