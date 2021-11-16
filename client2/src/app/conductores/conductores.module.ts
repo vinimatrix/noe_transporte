@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormComponent } from './form/form.component';
+import { TableComponent } from './table/table.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    FormComponent,
+    TableComponent
+  ],
   imports: [
     CommonModule
   ]
